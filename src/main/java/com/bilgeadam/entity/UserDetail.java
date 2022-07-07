@@ -2,9 +2,11 @@ package com.bilgeadam.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -29,6 +31,12 @@ public class UserDetail {
 	private String lastName;
 	
 	private String bio;
+	
+	@Enumerated
+	private Gender gender;
+	
+	@Lob
+	private byte[] picture;
 	
 	@OneToOne(mappedBy = "userDetail")
 	private User user;

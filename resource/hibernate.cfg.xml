@@ -7,7 +7,7 @@
     
     <!-- hibernate config -->
 		<property name="showsql">true</property>
-		<property name="connection.autocommit">true</property>
+		<property name="connection.autocommit">false</property>
 		<property name="hbm2ddl.auto">create</property>
             
         <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>    

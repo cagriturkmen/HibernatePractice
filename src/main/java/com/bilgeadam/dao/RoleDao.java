@@ -61,7 +61,10 @@ public class RoleDao implements IRepository<Role>{
 		try {
 			Role role = find(id);
 			if(role != null) {				
-				
+				role.setRole(entity.getRole());
+				role.setDescription(entity.getDescription());
+				role.setRules(entity.getRules());
+				role.setUserList(entity.getUserList());
 				
 				session = databaseConnectionHibernate();
 				session.getTransaction().begin();

@@ -4,7 +4,7 @@ import java.security.Timestamp;
 import java.util.Date;
 
 import org.hibernate.annotations.CreationTimestamp;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +19,7 @@ import jakarta.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 
 @Getter
@@ -26,6 +27,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name="user_table")
+@ToString
 public class User {
 	
 	@Id
@@ -47,7 +49,7 @@ public class User {
 	private Role role;
 	
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_detail_id", referencedColumnName = "id" )
 	private UserDetail userDetail;
 	

@@ -62,6 +62,9 @@ public class RuleDao implements IRepository<Rule>{
 			Rule updatedRule = find(id);
 			if(updatedRule != null) {				
 				
+				updatedRule.setRule(entity.getRule());
+				updatedRule.setRoles(entity.getRoles());
+				updatedRule.setDescription(entity.getDescription());
 				
 				session = databaseConnectionHibernate();
 				session.getTransaction().begin();
